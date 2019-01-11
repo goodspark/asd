@@ -1,2 +1,5 @@
 language: minimal
 script: echo hello
+branches:
+  only:
+    - master
