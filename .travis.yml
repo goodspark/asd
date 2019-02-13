@@ -1,5 +1,17 @@
 language: minimal
-script: echo hello
 branches:
   only:
     - master
+    - /^blah-v/
+
+matrix:
+  fast_finish: true
+
+  include:
+    - name: Test
+      script: echo hello
+
+    - name: Blah
+      stage: release
+      if: tag =~ ^blah-v
+      script: echo blah
