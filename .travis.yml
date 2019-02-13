@@ -2,6 +2,7 @@ language: minimal
 branches:
   only:
     - master
+    # Need to specify tags here, as branch safelists disable tag-based builds
     - /^blah-v/
 
 matrix:
@@ -11,7 +12,17 @@ matrix:
     - name: Test
       script: echo hello
 
+    - name: Bye
+      script: echo bye
+
     - name: Blah
       stage: release
-      if: branch = master AND tag =~ ^blah-v
+      # To skip the job altogether (non-trivial VM spin-up cost)
+      if: tag =~ ^blah-v
       script: echo blah
+      deploy:
+        provider: script
+        script: bash echo yo
+        # By default only deploys on master branches, this enables tag releases
+        on:
+          tags: true
