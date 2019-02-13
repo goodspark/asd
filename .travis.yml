@@ -13,5 +13,5 @@ matrix:
 
     - name: Blah
       stage: release
-      if: tag =~ ^blah-v
+      if: branch = master AND tag =~ ^blah-v
       script: echo blah
