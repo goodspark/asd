@@ -25,4 +25,5 @@ matrix:
         script: bash echo yo
         # By default only deploys on master branches, this enables tag releases
         on:
+          
           tags: true
