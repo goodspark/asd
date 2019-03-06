@@ -15,6 +15,12 @@ matrix:
     - name: Bye
       script: echo bye
 
+    - name: asdasd
+      language: python
+      python: 3.7
+      script:
+        - pip freeze
+
     - name: Blah
       stage: release
       # To skip the job altogether (non-trivial VM spin-up cost)
