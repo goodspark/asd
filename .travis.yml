@@ -10,7 +10,11 @@ matrix:
 
   include:
     - name: Test
-      script: echo hello
+      script:
+        - COMMITS="$(git log --pretty=oneline --abbrev-commit origin/master...HEAD)"
+        - echo "${COMMITS}"
+        - if [[ "${COMMITS}" == *"[asdasd]"* ]]; then echo nothing; exit 0; fi
+        - echo hello
 
     - name: Bye
       script: echo bye
