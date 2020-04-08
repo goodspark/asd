@@ -10,7 +10,11 @@ matrix:
 
   include:
     - name: Test
-      script: echo hello
+      script:
+        - if [[ "${TRAVIS_COMMIT_MESSAGE}" == *"[asdasd]"* ]]; then
+            echo nothing
+          fi
+        - echo hello
 
     - name: Bye
       script: echo bye
