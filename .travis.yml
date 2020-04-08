@@ -11,6 +11,9 @@ matrix:
   include:
     - name: Test
       script:
+        - git status
+        - git diff
+        - git log origin/master...HEAD
         - echo "${TRAVIS_COMMIT_MESSAGE}"
         - if [[ "${TRAVIS_COMMIT_MESSAGE}" == *"[asdasd]"* ]]; then echo nothing; exit 0; fi
         - echo hello
