@@ -11,9 +11,7 @@ matrix:
   include:
     - name: Test
       script:
-        - if [[ "${TRAVIS_COMMIT_MESSAGE}" == *"[asdasd]"* ]]; then
-            echo nothing
-          fi
+        - if [[ "${TRAVIS_COMMIT_MESSAGE}" == *"[asdasd]"* ]]; then echo nothing; exit 0; fi
         - echo hello
 
     - name: Bye
