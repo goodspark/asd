@@ -1,0 +1,17 @@
+---
+steps:
+  - command: "sleep 3; echo asd"
+    label: asd
+    agents:
+      - queue: asd
+  - command: "echo zxc"
+    label: zxc
+  - command: "echo zxc"
+    label: 'zxc zxc zxc :stars:'
+  - command: fail
+    label: fail
+  - command: env | sort
+    label: envs
+    parallelism: 2
+env:
+  ASD: 1
