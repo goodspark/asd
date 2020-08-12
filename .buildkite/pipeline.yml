@@ -1,0 +1,13 @@
+---
+steps:
+  - command: echo as
+    label: asd
+    agents:
+      queue: spark-test-dd
+    plugins:
+      - docker#v3.5.0:
+          image: alpine:latest
+          always-pull: true
+    parallelism: 2
+env:
+  ASD: 1
