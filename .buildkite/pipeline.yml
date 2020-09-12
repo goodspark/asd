@@ -4,6 +4,7 @@ steps:
     label: asd
     agents:
       queue: spark-test-dd
+      'a.b:c': 123
     parallelism: 2
 env:
   ASD: 1
