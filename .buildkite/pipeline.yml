@@ -6,5 +6,6 @@ steps:
       queue: spark-test-dd
       'a.b:c': 123
     parallelism: 2
+    timeout_in_minutes: 1
 env:
   ASD: 1
