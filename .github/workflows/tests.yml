@@ -11,3 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: env | grep GITHUB_
+      - run: |
+          export ASD="asd
+          zxc
+          123"
+
+          echo $ASD
+          echo "$ASD"
