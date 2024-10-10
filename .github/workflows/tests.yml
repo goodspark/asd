@@ -10,4 +10,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: env | grep GITHUB_
+      - run: |
+          echo asd \
+            zxc \
+            123 \
+            ${{ '' }}
