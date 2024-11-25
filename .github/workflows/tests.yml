@@ -9,5 +9,20 @@ on:
 jobs:
   asd:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        x: [1, 2, 3]
+    outputs:
+      x: ${{ steps.asd.outputs.x }}
     steps:
-      - run: gh --help
+      - run: echo ${{ matrix.x }}
+
+      - id: asd
+        run: echo x=${{ matrix.x }} >> $GITHUB_OUTPUT
+        if: ${{ matrix.x == 1 }}
+
+  zxc:
+    runs-on: ubuntu-latest
+    needs: asd
+    steps:
+      - run: echo ${{ needs.asd.outputs.x }}
