@@ -13,16 +13,16 @@ jobs:
       matrix:
         x: [1, 2, 3]
     outputs:
-      x: ${{ steps.asd.outputs.x }}
+      x-asd: ${{ steps.asd.outputs.x-asd }}
     steps:
       - run: echo ${{ matrix.x }}
 
       - id: asd
-        run: echo x=${{ matrix.x }} >> $GITHUB_OUTPUT
+        run: echo x-asd=${{ matrix.x }} >> $GITHUB_OUTPUT
         if: ${{ matrix.x == 1 }}
 
   zxc:
     runs-on: ubuntu-latest
     needs: asd
     steps:
-      - run: echo ${{ needs.asd.outputs.x }}
+      - run: echo ${{ needs.asd.outputs.x-asd }}
