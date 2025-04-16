@@ -11,18 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [1, 2, 3]
-    outputs:
-      x-asd: ${{ steps.asd.outputs.x-asd }}
+        x: [0, 0, 0, 0]
     steps:
       - run: echo ${{ matrix.x }}
-
-      - id: asd
-        run: echo x-asd=${{ matrix.x }} >> $GITHUB_OUTPUT
-        if: ${{ matrix.x == 1 }}
+      - run: exit ${{ matrix.x }}
 
   zxc:
     runs-on: ubuntu-latest
+    if: always()
     needs: asd
     steps:
-      - run: echo ${{ needs.asd.outputs.x-asd }}
+      - run: echo ${{ needs.asd.result }}
