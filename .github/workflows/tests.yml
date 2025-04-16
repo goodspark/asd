@@ -21,4 +21,4 @@ jobs:
     if: always()
     needs: asd
     steps:
-      - run: echo ${{ needs.asd }}
+      - run: echo '${{ toJSON(needs) }}'
