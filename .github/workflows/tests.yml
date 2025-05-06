@@ -7,7 +7,18 @@ on:
       - main
 
 jobs:
-  test:
+  asd:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        x: [1, 0, 0, 0]
     steps:
-      - run: env | grep GITHUB_
+      - run: echo ${{ matrix.x }}
+      - run: exit ${{ matrix.x }}
+
+  zxc:
+    runs-on: ubuntu-latest
+    if: ${{ !cancelled() }}
+    needs: asd
+    steps:
+      - run: echo '${{ toJSON(needs) }}'
